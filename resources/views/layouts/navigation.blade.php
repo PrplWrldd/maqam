@@ -96,10 +96,10 @@
             
             <div class="relative me 1 sm:-me-1 flex items-center sm:hidden">
                 <!-- Language Toggle Button -->
-                <form method="GET" action="{{ url()->current() }}" class="ml-2">
+                <form method="GET" action="{{ url()->current() }}" class="ml-6">
                     <button type="submit" name="lang" value="{{ app()->getLocale() === 'en' ? 'bm' : 'en' }}" 
                         class="flex items-center px-2 py-1 bg-gray-100 text-sm text-gray-700 font-medium rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500">
-                        {{ app()->getLocale() === 'en' ? 'BM' : 'EN' }}
+                        {{ app()->getLocale() === 'en' ? 'EN' : 'BM' }}
                     </button>
                 </form>
 
