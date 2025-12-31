@@ -123,9 +123,8 @@
         @if (Auth::user()?->role === 'admin')
             <x-responsive-nav-link :href="route('graves.index')" :active="request()->routeIs('graves.*')">
                 <span class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 8h8" />
-                    </svg>
+                    <!-- External SVG File for Graves Icon -->
+                    <img src="{{ asset('svg/grave.png') }}" alt="Graves Icon" class="h-5 w-5 mr-2">
                     {{ __('Graves') }}
                 </span>
             </x-responsive-nav-link>
@@ -134,9 +133,8 @@
         <!-- Donation Link -->
         <x-responsive-nav-link :href="route('dono')" :active="request()->routeIs('dono')">
             <span class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 8h8" />
-                </svg>
+                <!-- External SVG File for Donation Icon -->
+                <img src="{{ asset('svg/donation.png') }}" alt="Donation Icon" class="h-5 w-5 mr-2">
                 {{ __('Donation') }}
             </span>
         </x-responsive-nav-link>
