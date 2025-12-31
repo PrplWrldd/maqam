@@ -91,11 +91,7 @@ class GraveController extends Controller
     // Handle the photo upload
     $photoPath = $grave->photo; // Keep the existing photo path
 
-    if ($request->hasFile('photo')) {
-        // Delete the old photo if it exists
-        if ($photoPath) {
-            Storage::disk('public')->delete($photoPath);
-        }
+    
 
         // Store the new photo
         $photoPath = $request->file('photo')->store('photos', 'public');
