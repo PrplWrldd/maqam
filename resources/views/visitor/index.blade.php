@@ -135,10 +135,10 @@
                         content: `
                             <div class="info-window-content px-2 pt-1 pb-2">
                                 <div class="flex justify-center mb-2">
-                <img src="/storage/${grave.photo ?? 'default.jpg'}" 
-                     alt="${grave.name ?? 'Unknown Name'}" 
-                     class="w-32 h-32 object-cover rounded shadow">
-            </div>
+                                    <img src="/storage/${grave.photo ?? 'default.jpg'}" 
+                                        alt="${grave.name ?? 'Unknown Name'}" 
+                                        class="w-32 h-32 object-cover rounded shadow">
+                                </div>
                                 <h3 class="text-lg font-bold text-gray-800 mb-1">${grave.name ?? 'Unknown Name'}</h3>
                                 <p class="text-sm text-gray-600">
                                     <strong>IC Number:</strong> ${grave.ic_number ?? 'N/A'}
