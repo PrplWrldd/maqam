@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
         // Set the locale based on the 'lang' query parameter or session
         $locale = request('lang', Session::get('lang', 'en'));
         App::setLocale($locale);
