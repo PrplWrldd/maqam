@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Artisan;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -30,5 +31,9 @@ class AppServiceProvider extends ServiceProvider
         $locale = request('lang', Session::get('lang', 'en'));
         App::setLocale($locale);
         Session::put('lang', $locale);
+
+        if (!file_exists(public_path('storage'))) {
+            Artisan::call('storage:link');
+        }
     }
 }
