@@ -105,7 +105,7 @@
         }
 
         try {
-            const response = await fetch(`{{ route('visitor.search') }}?query=${encodeURIComponent(query)}`);
+            const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
             const data = await response.json();
 
             if (data.length === 0) {
