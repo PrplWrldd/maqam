@@ -91,7 +91,11 @@ class GraveController extends Controller
     // Handle the photo upload
     $photoPath = $grave->photo; // Keep the existing photo path
 
-    
+    if ($request->hasFile('photo')) {
+        // Delete the old photo if it exists
+        if ($photoPath) {
+            Storage::disk('public')->delete($photoPath);
+        }
 
         // Store the new photo
         $photoPath = $request->file('photo')->store('photos', 'public');
@@ -99,6 +103,7 @@ class GraveController extends Controller
 
     // Update the grave record
     $grave->update([
+        
         'name' => $request->input('name'),
         'ic_number' => $request->input('ic_number'),
         'date_of_death' => $request->input('date_of_death'),
@@ -112,9 +117,6 @@ class GraveController extends Controller
 
     public function destroy(Grave $grave)
     {
-        // Check if the grave has a photo
-        
-
         $grave->delete();
         return redirect()->route('graves.index')->with('success', 'Grave deleted');
     }
