@@ -138,6 +138,7 @@
                 {{ __('Donation') }}
             </span>
         </x-responsive-nav-link>
+        
     </div>
         
         <!-- Responsive Settings Options -->
