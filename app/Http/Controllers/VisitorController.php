@@ -13,7 +13,7 @@ class VisitorController extends Controller
     public function index()
     {
         // Fetch graves data from the database
-        $graves = Grave::all(['name', 'gps_lat', 'gps_lng', 'date_of_death', 'plot_number']);
+        $graves = Grave::all(['name', 'gps_lat', 'gps_lng', 'date_of_death', 'plot_number','photo']);
 
         // Pass the graves data to the view
         return view('visitor.index', compact('graves'));
@@ -31,7 +31,7 @@ class VisitorController extends Controller
         ->orWhere('ic_number', 'LIKE', "%{$query}%")
         ->orWhere('plot_number', 'LIKE', "%{$query}%")
         ->orWhere('date_of_death', 'LIKE', "%{$query}%")
-        ->get(['id','ic_number','name', 'date_of_death', 'plot_number', 'gps_lat', 'gps_lng']);
+        ->get(['id','ic_number','name', 'date_of_death', 'plot_number', 'gps_lat', 'gps_lng', 'photo']);
 
     // Save search term in session
     if ($query) {
