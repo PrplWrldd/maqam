@@ -116,6 +116,12 @@ class GraveController extends Controller
 
     public function destroy(Grave $grave)
     {
+        // Check if the grave has a photo
+        if ($grave->photo) {
+            // Delete the photo from storage
+            Storage::disk('public')->delete($grave->photo);
+        }
+        
         $grave->delete();
         return redirect()->route('graves.index')->with('success', 'Grave deleted');
     }
