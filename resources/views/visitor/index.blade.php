@@ -83,7 +83,7 @@
             map: map,
             title: 'Cemetery Main Area',
             icon: {
-                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png"
             }
         });
     }
