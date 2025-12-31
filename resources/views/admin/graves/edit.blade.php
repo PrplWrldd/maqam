@@ -86,7 +86,7 @@
                         <label for="photo" class="block text-sm font-semibold text-gray-700 mb-1">Upload Picture (Optional)</label>
                         <input type="file" name="photo" id="photo" accept="image/*"
                             class="block w-full border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out p-2.5">
-                        <p class="mt-1 text-sm text-gray-500">Maximum file size: 2MB.</p>
+                        <p class="mt-1 text-sm text-gray-500">Maximum file size: 1MB.</p>
                         
                         @if ($grave->photo)
                             <div class="mt-4">
