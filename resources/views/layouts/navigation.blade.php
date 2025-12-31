@@ -116,7 +116,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-gray-100">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-gray-100" x-show="open" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" class="absolute mt-2 w-48 bg-white shadow-lg rounded-lg z-50">
     <div class="pt-2 pb-3 space-y-1">
         <!-- Map Link -->
         <x-responsive-nav-link :href="route('visitor.index')" :active="request()->routeIs('visitor.*')">
