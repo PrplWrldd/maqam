@@ -108,23 +108,39 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-gray-100">
+    <div class="pt-2 pb-3 space-y-1">
+        <!-- Map Link -->
+        <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <span class="flex items-center">
+                <!-- External SVG File for Map Icon -->
+                <img src="{{ asset('svg/map.svg') }}" alt="Map Icon" class="h-5 w-5 mr-2">
                 {{ __('Map') }}
-            </x-responsive-nav-link>
+            </span>
+        </x-responsive-nav-link>
 
-            @if (Auth::user()?->role === 'admin')
-                <x-responsive-nav-link :href="route('graves.index')" :active="request()->routeIs('graves.*')">
+        <!-- Admin-Only Links -->
+        @if (Auth::user()?->role === 'admin')
+            <x-responsive-nav-link :href="route('graves.index')" :active="request()->routeIs('graves.*')">
+                <span class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 8h8" />
+                    </svg>
                     {{ __('Graves') }}
-                </x-responsive-nav-link>
-
-            @endif
-            <x-responsive-nav-link :href="route('dono')" :active="request()->routeIs('dono')">
-                {{ __('Donation') }}
+                </span>
             </x-responsive-nav-link>
-            
-        </div>
+        @endif
+
+        <!-- Donation Link -->
+        <x-responsive-nav-link :href="route('dono')" :active="request()->routeIs('dono')">
+            <span class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 8h8" />
+                </svg>
+                {{ __('Donation') }}
+            </span>
+        </x-responsive-nav-link>
+    </div>
         
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
