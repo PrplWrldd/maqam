@@ -80,7 +80,7 @@
                     <td class="px-6 py-3">
                         @if ($grave->photo)
                             <div class="relative group">
-                                <img src="{{ asset('storage/' . $grave->photo) }}" alt="Grave Photo" 
+                                <img src="/storage/{{ $grave->photo }}" alt="Grave Photo"
                                     class="w-20 h-20 object-cover rounded-lg border border-gray-300 shadow-md transition-transform duration-300 transform group-hover:scale-105 group-hover:shadow-lg">
                                 <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
                                     <span class="text-white text-sm font-medium">View Photo</span>
